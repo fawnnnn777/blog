@@ -1,0 +1,16 @@
+.nav-left{
+    padding-left: 20px;
+    color: white;
+}
+.navbar{
+    justify-content: space-between;
+}
+.nav-right{
+    padding-right: 20px;
+    color: white;
+}
+
+a:link{
+    text-decoration: none;
+    color: white;
+}
