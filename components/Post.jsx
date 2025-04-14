@@ -7,7 +7,7 @@ export default function Post(){
     return ( 
         <div className="bg-white text-black m-2 rounded-lg p-2">
             <h1>this is a post</h1>
-            <p className={`text-md ${montserrat.className}`}>
+            <p className={`text-lg ${montserrat.className}`}>
              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus tempora delectus repudiandae doloribus laboriosam dolorum distinctio blanditiis officiis vel omnis non nam unde sed aliquid quasi excepturi iste, est consectetur!
             </p>
             <p>
