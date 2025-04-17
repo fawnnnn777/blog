@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
    <div className='container'>
-    {posts.rows? posts.rows.map((post)=><Post key={post.post.id} post={post}></Post>): <h1>no posts</h1>}
+    {posts.rows? posts.rows.map((post)=><Post key={post.id} post={post}></Post>): <h1>no posts</h1>}
       <Featured></Featured>
       <Category></Category>
       <div className='content'>

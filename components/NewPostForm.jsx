@@ -6,13 +6,17 @@ import { useState } from "react"
 
 export default function NewPostForm(){
 
-    const session = useSession()
 
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [loading, setLoading] = useState(false)
-    const userId = session.data.user.id
+    const { data: session, status } = useSession()
+
+if (status === "loading") return <p>Loading...</p>
+if (!session) return <p>You must be signed in to post.</p>
+
+const userId = session.user.id
 
     async function handleSubmit(e){
         e.preventDefault()
