@@ -16,26 +16,31 @@ export const { handlers, auth, signIn, signOut } = NextAuth(() => {
         })
     ],
     callbacks: {
-        async signIn({user}){
-            const profileExists = await db.query(
-                `SELECT 1 FROM profile WHERE userId = $1 LIMIT 1`,
-                [user.id]
+        async signIn({ user }) {
+          if (!user.email) return false;
+      
+          const profileExists = await db.query(
+            `SELECT 1 FROM profile WHERE email = $1 LIMIT 1`,
+            [user.email]
+          )
+      
+          if (!profileExists.rowCount) {
+            await db.query(
+              `INSERT INTO profile (email, role) VALUES ($1, $2)`,
+              [user.email, 'user']
             )
-            if(!profileExists.rowCount){
-                await db.query (
-                    `INSERT INTO profile (userId, role) VALUES ($1, $2)`,
-                    [user.id, 'user']
-                )
-            }
-            return true
+          }
+          return true;
         },
-        async session({session, user}){
-            const profile = await db.query(`SELECT role FROM profile WHERE userId = $1`,
-                [user.id]
-            )
-            session.user.role = profile.rows[0]?.role
-            return session;
+        async session({ session }) {
+          const result = await db.query(
+            `SELECT role FROM profile WHERE email = $1`,
+            [session.user.email]
+          )
+      
+          session.user.role = result.rows[0]?.role || 'user';
+          return session;
         }
-    }
+      }
   }
 })
