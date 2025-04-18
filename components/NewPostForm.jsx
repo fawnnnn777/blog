@@ -1,6 +1,7 @@
 'use client'
 import { auth } from "@/auth"
 import { useSession, SessionProvider } from "next-auth/react"
+import { redirect } from "next/dist/server/api-utils"
 import { useState } from "react"
 
 
@@ -42,6 +43,7 @@ const userId = session.user.id
         }
         setContent("")
         setTitle("")
+       window.location.href = "https://blog-tau-weld-48.vercel.app/"
     }
 
     return (
