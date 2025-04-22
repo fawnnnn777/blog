@@ -1,13 +1,9 @@
 'use client'
-import { auth } from "@/auth"
-import { useSession, SessionProvider } from "next-auth/react"
-import { redirect } from "next/dist/server/api-utils"
+import { useSession } from "next-auth/react"
 import { useState } from "react"
 
 
 export default function NewPostForm(){
-
-
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -18,6 +14,8 @@ if (status === "loading") return <p>Loading...</p>
 if (!session) return <p>You must be signed in to post.</p>
 
 const userId = session.user.id
+console.log(session);
+
 
     async function handleSubmit(e){
         e.preventDefault()

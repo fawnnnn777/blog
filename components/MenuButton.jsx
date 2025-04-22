@@ -1,10 +1,9 @@
 'use client'
-import { signOut } from "next-auth/react"
+import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoReturnUpBack } from "react-icons/io5";
-
-
+import SignOutButton from "./Signoutbutton";
 export default function MenuButton(){
 
     const [menu, setMenu] = useState(false)
@@ -21,7 +20,7 @@ export default function MenuButton(){
 `}>
 
     <IoReturnUpBack  onClick={() => setMenu(false)} size={36} className="absolute right-3 m-1 cursor-pointer" />
-    <button className="absolute bg-white text-black rounded-3xl p-2 bottom-5 right-3" onClick={()=>signOut()}>Sign Out</button>
+  <SignOutButton></SignOutButton>
     {menu && (
         <div
           className="fixed w-screen inset-0 bg-transparent z-40"

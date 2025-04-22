@@ -1,9 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import { FaPlus } from "react-icons/fa6";
-import PlusButton from "@/components/PlusButton";
 import { SessionProvider } from "next-auth/react";
 
 
@@ -30,11 +27,10 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="min-h-screen">
           <div className="container max-w-[1566px] ml-auto mr-auto pl-[80px] pr-[80px]">
-          <NavBar></NavBar>
           <SessionProvider>
+          <NavBar></NavBar>
           {children}          
           </SessionProvider>
-          <Footer></Footer>          
           </div>
         </div>
       </body>

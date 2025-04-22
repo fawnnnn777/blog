@@ -1,4 +1,4 @@
-import { Pool } from "pg"
+import { Pool } from "@neondatabase/serverless"
 
 export async function POST(req) {
   const db = new Pool({ connectionString: process.env.DATABASE_URL })

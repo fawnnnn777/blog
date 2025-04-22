@@ -2,9 +2,9 @@
 
 
 :root {
-  --background: #F1EFEC;
+  --background: black;
   --foreground: #171717;
-  --textColor: #123458;
+  --textColor: white;
 }
 
 body {
