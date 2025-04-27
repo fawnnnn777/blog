@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="min-h-screen">
-          <div className="container max-w-[1566px] ml-auto mr-auto pl-[80px] pr-[80px]">
+          <div className="container max-w-[1566px] h-screen ml-auto mr-auto pl-[80px] pr-[80px]">
           <SessionProvider>
           <NavBar></NavBar>
           {children}          

@@ -20,6 +20,9 @@ export default function MenuButton(){
 `}>
 
     <IoReturnUpBack  onClick={() => setMenu(false)} size={36} className="absolute right-3 m-1 cursor-pointer" />
+      <ul>
+        <li>Profile</li>
+      </ul>
   <SignOutButton></SignOutButton>
     {menu && (
         <div

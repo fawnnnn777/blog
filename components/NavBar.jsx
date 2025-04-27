@@ -13,7 +13,7 @@ export default async function NavBar(){
     const session = await auth()
 
     return (
-        <div className="w-screen left-0 sm:w-full border-b p-2 border-white/30 flex justify-between items-center h-[70px]">
+        <div className="fixed top-0 bg-black w-screen left-0 sm:w-full border-b p-2 border-white/30 flex justify-between items-center h-[70px]">
             <div className="flex justify-between">
             <MenuButton></MenuButton>
             </div>
@@ -21,7 +21,7 @@ export default async function NavBar(){
             <div>
             {!session?.user? <SignInButton className="box-border rounded-3xl p-2 m-1 border border-white/30 font-bold text-sm
             hover:cursor-pointer hover:text-[#F1EFEC] hover:bg-[#123458] transition duration-300 text-center
-            "></SignInButton>: <h1 className="font-bold text-sm p-2">Hi {session.user.name.split(" ")[0]}</h1> }  
+            "></SignInButton>: <p className="text-sm w-16">Signed in as <strong>{session.user.name.split(" ")[0]}</strong></p> }  
 
                
             </div>

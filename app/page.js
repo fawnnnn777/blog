@@ -22,7 +22,7 @@ JOIN users ON posts.userId = users.id;
   
 
   return (
-   <div className='container'>
+   <div className='container mt-19 h-fit'>
     {posts.rows? sortedPosts.map((post)=><Post key={post.id} post={post}></Post>): <h1>no posts</h1>}
       <div className='content'>
       </div>
